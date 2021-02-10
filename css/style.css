@@ -169,7 +169,6 @@
 }
 
 .feature-text{
-    
     grid-area: f-description;
     align-self: center;
     padding: 8px;
@@ -178,12 +177,6 @@
 
 #footer{
     grid-area: footer;
-}
-
-#pricing-section{
-    display: grid;
-    grid-template-columns: repeat(3 ,auto);
-    height: 100vh;
 }
 
 #top-title-section{
@@ -202,6 +195,33 @@
     padding: 2em 0em 0.5em 0em;
 }
 
+#pricing-title-section{
+    font-size: 28px;
+    font-weight: bold;
+    width: fit-content;
+    margin: auto;
+}
+
+
+#pricing-section{
+    align-content: center;
+    display: grid;
+    grid-template-areas: "ps-title"
+                        "ps-card";
+    grid-template-rows: 70px max-content;
+    column-gap: 1.4em;
+    height: 100vh; 
+}
+
+#cards{
+    grid-area: ps-card;
+    display: grid;
+    column-gap: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 32px;
+}
+
 .pricing-card{
     display: grid;
     grid-template-areas: 
@@ -209,14 +229,100 @@
             "p-price"
             "p-features"
             "p-button";
-    width: fit-content;
+    grid-template-rows: 40px 32px 150px 40px;
+    width: 270px;
+    background: #fff;
 }
 
 .pricing-title{
+    text-align: center;
     grid-area: p-title;
     font-size: 20px;
+    height: 100%;
+    background: rgb(255, 247, 180);
+    width: 270px;
+    border: 1px solid rgb(201, 201, 201);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.pricing-price{
+    grid-area: p-price;
+    font-size: 18px;
+    text-align: center;
+    height: 100%;
+    width: inherit;
+    margin-top: auto;
+    margin-bottom: auto;
+    border: 1px solid rgb(201, 201, 201);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.pricing-features{
+    grid-area: p-features;
+    list-style: none;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 100%;
+    width: inherit;
+    border: 1px solid rgb(201, 201, 201);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.pricing-card > a {
+    text-decoration: none;
+    color: black;
+    background: pink;
+    height: auto;
+    width: 270px;
+    vertical-align: middle;
+    top: 12px;
+    text-align: center;
+    border: 1px solid rgb(201, 201, 201);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+
+#footer{
+    grid-area: footer;
+    background: #fff;
+    height: 150px;   
+}
+
+#form{
+    display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 30px;
+    width: fit-content;
+    
+}
+
+#form > input{
+    padding: 16px;
+    width: 250px;
+    border: 1px solid rgb(226, 226, 226);
+}
+
+
+#footer-text{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    opacity: 0.5;
 }
 
 @keyframes nav-link-animation{
@@ -226,5 +332,97 @@
 
     100%{
         font-size: 20px;
+    }
+}
+
+@media (max-width: 900px){
+    #top-section{
+        height: auto;
+        background: transparent;
+        display: grid;
+        grid-template-areas: 
+                "t-title"
+                "t-video"
+                "t-texto"
+                "t-button";
+    }
+    #top-text{
+        grid-area: t-texto;
+        width: 60vw;
+        text-align: justify;
+        margin: auto;
+        padding: 1em;
+    }
+
+    #features-section{
+        height: auto;
+        background: var(--features-section-bg-color);
+    }
+
+    .feature{
+        display: grid;
+        grid-template-areas: "f-icon f-title"
+                             "f-icon f-description";
+        grid-column: 110px;
+        width: 80vw;
+        margin: auto;
+        padding: 1.5em 0em 1.5em 0em;
+    }
+
+    .feature-text{
+        grid-area: f-description;
+        align-self: center;
+        padding: 8px;
+        text-align: justify;
+    }
+
+    #pricing-section{
+        align-content: center;
+        display: grid;
+        grid-template-areas: "ps-title"
+                             "ps-card";
+        grid-template-rows: 70px max-content;
+        column-gap: 1.4em;
+        height: auto; 
+    }
+
+    #cards{
+        grid-area: ps-card;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 32px;
+        row-gap: 16px;
+        padding-bottom: 16px;
+    }
+
+    #form{
+        display: grid;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+        width: fit-content;
+        row-gap: 8px;
+    }
+    
+    #form > input{
+        padding: 16px;
+        width: auto;
+        border: 1px solid rgb(226, 226, 226);
+        display: flexbox;
+    }
+
+    #footer-text{
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+        padding-bottom: 16px;
+        opacity: 0.5;
+    }
+}
+
+@media (min-width: 900px){
+    #cards{
+        grid-template-columns: repeat(3, 270px);
     }
 }
